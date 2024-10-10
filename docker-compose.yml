@@ -11,12 +11,12 @@ services:
         container_name: mysql
         image: mysql
         volumes:
-            - .\mysql-data:/var/lib/mysql
+            - .\mysql-bonami:/var/lib/mysql
         environment:
             MYSQL_ROOT_PASSWORD: root
-            MYSQL_DATABASE: wordpress
-            MYSQL_USER: test
-            MYSQL_PASSWORD: test
+            MYSQL_DATABASE: bonami
+            MYSQL_USER: bonami
+            MYSQL_PASSWORD: bonami
     phpmyadmin:
         container_name: phpmyadmin
         image: phpmyadmin
