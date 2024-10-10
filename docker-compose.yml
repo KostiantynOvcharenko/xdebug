@@ -7,3 +7,22 @@ services:
             - .\www:/var/www/html
         extra_hosts: 
             - "host.docker.internal:host-gateway"
+    mysql:
+        container_name: mysql
+        image: mysql
+        volumes:
+            - .\mysql-data:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: wordpress
+            MYSQL_USER: test
+            MYSQL_PASSWORD: test
+    phpmyadmin:
+        container_name: phpmyadmin
+        image: phpmyadmin
+        ports:
+            - "1500:80"
+        environment:
+            PMA_HOST: mysql
+        depends_on:
+            - mysql
